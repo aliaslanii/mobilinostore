@@ -1,0 +1,158 @@
+.formm {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 300px;
+  background-color: #fff;
+  border-radius: 20px;
+  padding: 30px 20px;
+  box-shadow: 100px 100px 80px rgba(0, 0, 0, 0.03)
+}
+
+.title {
+  color: black;
+  font-weight: bold;
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 4px;
+}
+
+.sub {
+  text-align: center;
+  color: black;
+  font-size: 14px;
+  width: 100%;
+}
+
+.sub.mb {
+  margin-bottom: 1px;
+}
+
+.sub a {
+  color: rgb(23, 111, 211);
+}
+
+.avatarr {
+  height: 50px;
+  width: 50px;
+  background-color: rgb(23, 111, 211);
+  border-radius: 50%;
+  align-self: center;
+  padding: 6px;
+  cursor: pointer;
+  box-shadow: 12.5px 12.5px 10px rgba(0, 0, 0, 0.015),100px 100px 80px rgba(0, 0, 0, 0.03);
+}
+
+.form .btn-rig {
+  align-self: flex-end;
+}
+
+.inputt, .btn-rig  {
+  border: none;
+  outline: none;
+  width: 100%;
+  padding: 16px 10px;
+  background-color: rgb(247, 243, 243);
+  border-radius: 10px;
+  box-shadow: 12.5px 12.5px 10px rgba(0, 0, 0, 0.015),100px 100px 80px rgba(0, 0, 0, 0.03);
+}
+
+.btn-rig {
+  margin-top: 12px;
+  background-color: rgb(23, 111, 211);
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.input:focus {
+  border: 1px solid rgb(23, 111, 211);
+}
+.mobile-logo{
+  width: 24%;
+  top: .3rem;
+  position: relative;
+}
+#filee {
+  display: none;
+}
+.icone-img{
+  font-size: 2.4rem;
+  color: #fff;
+}
+
+.tab {
+  display: none;
+}
+.step {
+    height: 2rem;
+    width: 2rem;
+    margin: 0 2px;
+    margin-left: .5rem;
+    background-color: #f0f0ff;
+    border: none;
+    border-radius: .5rem;
+    display: inline-block;
+    opacity: 0.5;
+    font-size: 1.3rem;
+    color: #8f9cc0;
+}
+  
+.step.active {
+    opacity: 1;
+    background-color: #6259ca;
+    color: #fff;
+}
+.step.finish {
+    background-color: #6259ca;
+    color: #fff;
+}
+
+.borderr{
+  border: 1px solid #ededf9 !important;
+  border-radius: .5rem;
+  padding: 20px;
+}
+.text-form-wizard{
+  font-size: .8rem;
+  color: #8f9cc0;
+}
+
+.text-w{
+  color: #fff !important;
+}
+
+.remove-icone{
+  background-color: #ff2f2f;
+  border-radius: 2rem;
+  left: 1.7rem;
+  bottom: 0.7rem;
+  opacity: .9;
+  font-size: 1rem;
+}
+.div-remove-icone{
+  position: absolute;
+}
+.border-input{
+  border: 1px solid #ededf9 !important;
+  border-radius: .5rem;
+  padding: 5px;
+}
+.filepond--credits{
+  display: none;
+}
+.bg-Form{
+  background-color: #f0f0ff;
+}
+.btnDeleteimg{
+  position: absolute;
+}
+.btnDeleteimg-icon{
+  color: red;
+  font-size: 2rem;
+}
+.img-user-profile{
+  width: 8rem;
+  height: 10rem;
+  position: relative;
+}

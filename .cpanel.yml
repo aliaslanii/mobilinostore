@@ -1,0 +1,9 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/zxnlgcme/mobilinostore
+    - /bin/cp -R app $DEPLOYPATH
+    - /bin/cp -R routes $DEPLOYPATH
+    - /bin/cp -R resources $DEPLOYPATH
+    - /bin/cp -R lang $DEPLOYPATH
+    - /bin/cp composer.json $DEPLOYPATH
