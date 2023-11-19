@@ -2,8 +2,11 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/zxnlgcme/mobilinostore
+    - export PUBLICPATH=/home/zxnlgcme/public_html
     - /bin/cp -R app $DEPLOYPATH
     - /bin/cp -R routes $DEPLOYPATH
     - /bin/cp -R resources $DEPLOYPATH
     - /bin/cp -R lang $DEPLOYPATH
     - /bin/cp composer.json $DEPLOYPATH
+    - /bin/cp -R public/asset-Admin $PUBLICPATH
+    - /bin/cp -R public/asset-Home $PUBLICPATH
