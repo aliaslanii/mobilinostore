@@ -7,7 +7,7 @@ use App\Models\Comments_minus;
 use App\Models\Comments_plus;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
-
+use Exception;
 class AdminCommentsController extends Controller
 {
     public function commnets(Request $request)
@@ -39,16 +39,24 @@ class AdminCommentsController extends Controller
     }
     public function commnetAccept(Request $request)
     {
-        $Comment = comments::find($request->id);
-        $Comment->accept = 1 ;
-        $Comment->update();
-        return response()->json($Comment);
+        try {
+            $Comment = comments::find($request->id);
+            $Comment->accept = 1;
+            $Comment->update();
+            return redirect()->back()->with('success','عملیات با موفقیت انجام شد');
+        } catch (Exception) {
+            return redirect()->back()->with('error','مشکلی به وجود آمده است مجدد تلاش کنید');
+        } 
     }
     public function commnetDelete(Request $request)
     {
-        $Comment = comments::find($request->id);
-        $Comment->is_Delete = 1;
-        $Comment->update();
-        return response()->json($Comment);
+        try {
+            $Comment = comments::find($request->id);
+            $Comment->is_Delete = 1;
+            $Comment->update();
+            return redirect()->back()->with('success','عملیات با موفقیت انجام شد');
+        } catch (Exception) {
+            return redirect()->back()->with('error','مشکلی به وجود آمده است مجدد تلاش کنید');
+        } 
     }
 }
