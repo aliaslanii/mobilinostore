@@ -243,7 +243,7 @@
 									</a>
 								</h2>
 								<div class="price">
-									@if ($item->Discounts())
+									@if (CheckDiscount($item))
 									<del>{{ number_format(CheapestPrice($item)) }}<span>تومان</span></del>
 									<ins><span>{{ number_format(DiscountedPrice($item->id, Color($item)->id)) }}<span>تومان</span></span></ins>
 									<div class="stars-plp Discount-Product">
