@@ -12,6 +12,25 @@
 </div>
 <!-- End Page Header -->
 <!-- Row -->
+<div class="container">
+   <div class="row">
+      @if(Session::get('success'))
+      <div class="col-md-5 col-sm-8 mt-2" id="successAlert">
+         <div class="alert alert-success" role="alert">
+            <strong>موفق : </strong>{{ Session::get('success') }}
+         </div>
+      </div>
+      @endif
+      @if(Session::get('error'))
+      <div class="col-md-5 col-sm-8 mt-2" id="errorAlert">
+         <div class="alert alert-danger" role="alert">
+            <strong>خطا : </strong>{{ Session::get('error') }}
+         </div>
+      </div>
+      @endif
+   </div>
+</div>
+
 <div class="row row-sm">
    <div class="col-xl-3">
    </div>
@@ -62,16 +81,21 @@
             </div>
          </div>
          <div class="modal-footer">
-            <button class="btn ripple btn-secondary deleteComment" type="button">حذف</button>
-            <button class="btn ripple btn-primary AcceptComment" type="button">تائید</button>
+            <form action="{{ route('CommnetDelete') }}" method="POST">
+               @csrf
+               <input type="hidden" name="id" class="deleteComment-input">
+               <button class="btn ripple btn-secondary deleteComment" type="submit">حذف</button>
+            </form>
+            <form action="{{ route('CommnetAccept') }}" method="POST">
+               @csrf
+               <input type="hidden" name="id" class="AcceptComment-input">
+               <button class="btn ripple btn-primary AcceptComment" type="submit">تائید</button>
+            </form>
          </div>
       </div>
    </div>
 </div>
 <!--End ShowComment -->
-
-
-
 @endsection
 @section('script')
 <script type="text/javascript">
@@ -122,55 +146,23 @@
             success: function(data) {
                $('.Comment-detal').remove();
                $("#data-Comment").append(data.getComment);
-               $(".AcceptComment").attr("data-id",data.id);
-               $(".deleteComment").attr("data-id",data.id);
+               $(".AcceptComment-input").val(data.id);
+               $(".deleteComment-input").val(data.id);
                $(".loader-div").hide();
             },
-            
          });
       });
-      
       $('body').on('click', '.AcceptComment', function() {
-         var id = $(this).data("id");
          $(".loader-div").show();
-         $.ajax({
-            data:{'id':id },
-            url: "{{ route('CommnetAccept') }}",
-            type: "POST",
-            dataType: 'json',
-            success: function (data) {
-               table.draw();
-               $('#ShowComment').modal('hide');
-               $(".loader-div").hide();
-            },
-            error: function(data){
-               alert(data);
-            },
-         });
       });
-
-
       $('body').on('click', '.deleteComment', function() {
-         var id = $(this).data("id");
          $(".loader-div").show();
-         $.ajax({
-            data:{'id':id },
-            url: "{{ route('CommnetDelete') }}",
-            type: "POST",
-            dataType: 'json',
-            success: function (data) {
-               table.draw();
-               $('#ShowComment').modal('hide');
-               $(".loader-div").hide();
-            },
-         });
       });
-
-   $(".btnCloseModel").click(function() {
-      $('#ShowComment').modal('hide');
-      $('#errorModel').modal('hide');
-      $('#ConfirmDelete').modal('hide');
-   });
+      $(".btnCloseModel").click(function() {
+         $('#ShowComment').modal('hide');
+         $('#errorModel').modal('hide');
+         $('#ConfirmDelete').modal('hide');
+      });
 });     
 </script> 
 @endsection

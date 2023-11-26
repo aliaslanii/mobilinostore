@@ -115,19 +115,19 @@
                         </li>
                      </ul>
                   </li>
-                  <li class="nav-item @if(request()->is('admin/Products') || request()->is('admin/Product/Create')) active show  @endif">
+                  <li class="nav-item @if(request()->is('admin/Product') || request()->is('admin/Product/Create')) active show  @endif">
                      <a class="nav-link with-sub" href="#"><span class="shape1"></span><span class="shape2">
                         </span><ion-icon class="icon-adminindex" name="qr-code-outline"></ion-icon><span class="sidemenu-label">محصولات</span><i class="angle fe fe-chevron-left"></i>
                      </a>
                      <ul class="nav-sub">
-                        <li class="nav-sub-item @if(request()->is('admin/Products')) active @endif">
+                        <li class="nav-sub-item @if(request()->is('admin/Product')) active @endif">
                            <a class="nav-sub-link" href="{{ route('Products') }}">لیست محصولات</a>
                         </li>
-                        <li class="nav-sub-item @if(request()->is('admin/Products/defective')) active @endif">
+                        <li class="nav-sub-item @if(request()->is('admin/Product/defective')) active @endif">
                            <a class="nav-sub-link" href="{{ route('DefectiveProducts') }}">لیست محصولات ناقص</a>
                         </li>
                         <li class="nav-sub-item @if(request()->is('admin/Product/Create')) active @endif">
-                           <a class="nav-sub-link" href="{{ route('CreateProduct') }}">ایجاد محصولات</a>
+                           <a class="nav-sub-link" href="{{ route('CreateProduct') }}">ایجاد محصول</a>
                         </li>
                      </ul>
                   </li>
@@ -249,12 +249,20 @@
 
 <!-- Back-to-top -->
 <a href="#top" id="back-to-top"><i class="fe fe-arrow-up"></i></a>
+<script>
+   function hideAlert() {
+      var successAlert = document.getElementById("successAlert");
+      var errorAlert = document.getElementById("errorAlert");
+      successAlert.style.display = "none";
+      errorAlert.style.display = "none";
+   } 
+   setTimeout(hideAlert, 5000);
+</script>
 <!-- Jquery js-->
-<script src="{{ loadA('assets/plugins/jquery/jquery.min.js') }}"></script>
-
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 <!-- Bootstrap js-->
-<script src="{{ loadA('assets/plugins/bootstrap/js/popper.min.js') }}"></script>
-<script src="{{ loadA('assets/plugins/bootstrap/js/bootstrap-rtl.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
 
 <!-- Perfect-scrollbar js -->
 <script src="{{ loadA('assets/plugins/perfect-scrollbar/perfect-scrollbar.min-rtl.js') }}"></script>
