@@ -177,7 +177,11 @@ Route::prefix("admin")->middleware(['admin.role','auth'])->group(function () {
         Route::post('Set/images',[AdminProductController::class,'setimages'])->name('Setimages');
         Route::post('Delete/images',[AdminProductController::class,'delimages'])->name('Delimages');
         Route::post('accept/show',[AdminProductController::class,'acceptshowProduct'])->name('acceptshowProduct');
-        Route::get('Edite/{id}',[AdminProductController::class,'EditeProduct'])->name('EditeProduct');
+        Route::get('Edite/info/{id}',[AdminProductController::class,'Editeinfo'])->name('Editeinfo');
+        Route::get('Edite/Color/{id}',[AdminProductController::class,'Editecolor'])->name('EditeColor');
+        Route::post('Set/Color',[AdminProductController::class,'setColorProduct'])->name('SetColorProduct');
+        Route::get('Edite/image/{id}',[AdminProductController::class,'Editeimage'])->name('Editeimage');
+        Route::get('Edite/detail/{id}',[AdminProductController::class,'Editedetail'])->name('EditeDetail');
         Route::get('deleteimg/{id}',[AdminProductController::class,'deleteimgProduct'])->name('deleteimgProducts');
         Route::post('Update',[AdminProductController::class,'UpdateProduct'])->name('UpdateProduct');
         Route::post('Delete',[AdminProductController::class,'DeleteProduct'])->name('DeleteProduct');
