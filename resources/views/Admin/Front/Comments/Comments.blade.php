@@ -12,25 +12,6 @@
 </div>
 <!-- End Page Header -->
 <!-- Row -->
-<div class="container">
-   <div class="row">
-      @if(Session::get('success'))
-      <div class="col-md-5 col-sm-8 mt-2" id="successAlert">
-         <div class="alert alert-success" role="alert">
-            <strong>موفق : </strong>{{ Session::get('success') }}
-         </div>
-      </div>
-      @endif
-      @if(Session::get('error'))
-      <div class="col-md-5 col-sm-8 mt-2" id="errorAlert">
-         <div class="alert alert-danger" role="alert">
-            <strong>خطا : </strong>{{ Session::get('error') }}
-         </div>
-      </div>
-      @endif
-   </div>
-</div>
-
 <div class="row row-sm">
    <div class="col-xl-3">
    </div>

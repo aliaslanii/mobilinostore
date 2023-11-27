@@ -71977,6 +71977,13 @@ ion-icon{
     padding: 0.5rem;
     color: white;
 }
+.icone-ellipsis{
+    top: 0.3rem;
+    font-size: 1rem !important;
+}
+.inline{
+   display:inline
+}
   
   
 

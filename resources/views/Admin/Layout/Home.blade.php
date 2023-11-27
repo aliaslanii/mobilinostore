@@ -115,7 +115,7 @@
                         </li>
                      </ul>
                   </li>
-                  <li class="nav-item @if(request()->is('admin/Product') || request()->is('admin/Product/Create')) active show  @endif">
+                  <li class="nav-item @if(request()->is('admin/Product') || request()->is('admin/Product/Create') || request()->is('admin/Product/Defective' )) active show  @endif">
                      <a class="nav-link with-sub" href="#"><span class="shape1"></span><span class="shape2">
                         </span><ion-icon class="icon-adminindex" name="qr-code-outline"></ion-icon><span class="sidemenu-label">محصولات</span><i class="angle fe fe-chevron-left"></i>
                      </a>
@@ -123,7 +123,7 @@
                         <li class="nav-sub-item @if(request()->is('admin/Product')) active @endif">
                            <a class="nav-sub-link" href="{{ route('Products') }}">لیست محصولات</a>
                         </li>
-                        <li class="nav-sub-item @if(request()->is('admin/Product/defective')) active @endif">
+                        <li class="nav-sub-item @if(request()->is('admin/Product/Defective')) active @endif">
                            <a class="nav-sub-link" href="{{ route('DefectiveProducts') }}">لیست محصولات ناقص</a>
                         </li>
                         <li class="nav-sub-item @if(request()->is('admin/Product/Create')) active @endif">
@@ -238,6 +238,30 @@
          <div class="main-content side-content pt-0">
             <div class="container-fluid">
                <div class="inner-body">
+                  <div class="container">
+                     <div class="row">
+                        @if(Session::get('success'))
+                        <div class="col-md-5 col-sm-8 mt-2">
+                           <div id="successAlert" class="alert alert-success mg-b-0" role="alert">
+                              <button aria-label="بستن" class="close" data-bs-dismiss="alert" type="button">
+                                 <span aria-hidden="true">×</span>
+                              </button>
+                              <strong>موفق : </strong>{{ Session::get('success') }}
+                           </div>
+                        </div>
+                        @endif
+                        @if(Session::get('error'))
+                        <div class="col-md-5 col-sm-8 mt-2">
+                           <div id="successAlert" class="alert alert-danger mg-b-0" role="alert">
+                              <button aria-label="بستن" class="close" data-bs-dismiss="alert" type="button">
+                                 <span aria-hidden="true">×</span>
+                              </button>
+                              <strong>خطا : </strong>{{ Session::get('error') }}
+                           </div>
+                        </div>
+                        @endif
+                     </div>
+                  </div>
                 @yield('Content')
                </div>
             </div>
